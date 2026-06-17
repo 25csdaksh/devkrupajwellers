@@ -1,0 +1,421 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* ==========================================================================
+     60:30:10 SHINY IMPERIAL PURPLE & VENETIAN GOLD SYSTEM TOKENS
+     - 60% Dominant (Background & Hero): Shiny Imperial Purple (#2D124D to #190533)
+     - 30% Secondary (Text, Lines, Grid structures): Pale Silk White (#F5F3FF)
+     - 10% Accent (Highlights & CTAs): Polished Venetian Gold (#D4AF37)
+     ========================================================================== */
+
+  /* 60% Dominant Color (Deep Shiny Imperial Purple base - Darkened) */
+  --color-dominant: #0b0114;       
+  --color-dominant-rgb: 11 1 20;
+  
+  /* Supporting Imperial Purple shades for structural surfaces - Darkened */
+  --color-secondary: #140526;      
+  --color-secondary-rgb: 20 5 38;
+  --color-footer-bg: #06010d;       /* Velvet ultra-deep purple-black */
+  --color-glass-bg: rgba(20, 5, 38, 0.82);
+  
+  /* Transitions & Spotlights */
+  --color-door-radial: radial-gradient(circle at center, #140526 0%, #06010d 100%);
+  --color-medallion-radial: radial-gradient(circle, #240b45 0%, #06010d 100%);
+  --color-spotlight: radial-gradient(circle at center, rgba(20, 5, 38, 0.85) 0%, rgba(11, 1, 20, 1) 100%);
+
+  /* 10% Accent Color (Polished Venetian Gold highlights and CTAs) */
+  --color-accent: #d4af37;         
+  --color-accent-rgb: 212 175 55;
+  --color-accent-hover: #f1cf65;   
+
+  /* 30% Secondary Color for Text & crisp borders (Pale Silk White) */
+  --color-text-primary: #ffffff;   /* Pure white headings */
+  --color-text-primary-rgb: 255 255 255;
+  --color-text-secondary: #f5f3ff; /* Pale Silk White for body content */
+  --color-text-secondary-rgb: 245 243 255;
+  --color-text-muted: #abb1c4;     /* Silk-muted gray-purple */
+  --color-text-muted-rgb: 171 177 196;
+  --color-text-light: #f5f3ff;     /* Light silk lines */
+  --color-text-light-rgb: 245 243 255;
+  
+  --color-border: rgba(212, 175, 55, 0.18); /* Venetian gold translucent borders */
+  --color-card-shadow: 0 20px 40px rgba(0, 0, 0, 0.75), 0 0 20px rgba(212, 175, 55, 0.05);
+}
+
+@layer base {
+  body {
+    background-color: var(--color-dominant);
+    color: var(--color-text-secondary);
+    @apply font-sans antialiased transition-colors duration-300;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--color-text-primary);
+    @apply font-serif transition-colors duration-300;
+  }
+}
+
+@layer utilities {
+  .glass-effect {
+    background: linear-gradient(135deg, rgba(20, 5, 38, 0.88) 0%, rgba(11, 1, 20, 0.96) 100%);
+    backdrop-filter: blur(16px);
+    border: 1px solid var(--color-border);
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.03), 0 15px 35px rgba(0, 0, 0, 0.5);
+  }
+  .gold-gradient {
+    background: linear-gradient(135deg, #d4af37 0%, #faebb8 30%, #b88d3d 60%, #faebb8 85%, #9e7528 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+/* Custom Luxury Animations */
+@keyframes subtle-zoom {
+  0% { transform: scale(1.02); }
+  100% { transform: scale(1.08); }
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Double Door Entrance Loader */
+.door-container {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.door-container.active {
+  pointer-events: auto;
+}
+
+.door-left, .door-right {
+  width: 50%;
+  height: 100%;
+  background: var(--color-door-radial);
+  position: relative;
+  display: flex;
+  align-items: center;
+  transition: transform 2.2s cubic-bezier(0.85, 0, 0.15, 1);
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.7);
+}
+
+/* Inset panels for royal door look */
+.door-left::before, .door-right::before {
+  content: '';
+  position: absolute;
+  top: 6%;
+  bottom: 6%;
+  width: 86%;
+  border: 1px solid var(--color-border);
+  box-shadow: inset 0 0 30px rgba(212, 175, 55, 0.03);
+}
+
+.door-left::before {
+  right: 6%;
+  border-radius: 12px 0 0 12px;
+}
+
+.door-right::before {
+  left: 6%;
+  border-radius: 0 12px 12px 0;
+}
+
+.door-left {
+  justify-content: flex-end;
+  border-right: 2px solid var(--color-accent); /* central gold seam */
+}
+
+.door-right {
+  justify-content: flex-start;
+  border-left: 2px solid var(--color-accent); /* central gold seam */
+}
+
+/* Open doors animation */
+.door-container.open .door-left {
+  transform: translateX(-100%);
+}
+
+.door-container.open .door-right {
+  transform: translateX(100%);
+}
+
+/* Centered gold logo medallion */
+.medallion-half-left, .medallion-half-right {
+  width: 150px;
+  height: 300px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: var(--color-medallion-radial);
+  border: 2.5px solid var(--color-accent);
+  box-shadow: 0 15px 45px rgba(0,0,0,0.5);
+  transition: transform 2.2s cubic-bezier(0.85, 0, 0.15, 1);
+}
+
+.medallion-half-left {
+  border-radius: 300px 0 0 300px;
+  justify-content: flex-end;
+  border-right: none;
+}
+
+.medallion-half-right {
+  border-radius: 0 300px 300px 0;
+  justify-content: flex-start;
+  border-left: none;
+}
+
+.door-container.open .medallion-half-left {
+  transform: translateX(-100%);
+}
+
+.door-container.open .medallion-half-right {
+  transform: translateX(100%);
+}
+
+/* Medallion text styling */
+.medallion-text-left, .medallion-text-right {
+  font-family: 'Playfair Display', 'Didot', 'Georgia', serif;
+  color: var(--color-accent);
+  font-weight: 700;
+  font-size: 2.3rem;
+  letter-spacing: 0.18em;
+  white-space: nowrap;
+  position: absolute;
+  text-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.medallion-text-left {
+  right: 12px; /* aligned perfectly near the seam */
+}
+
+.medallion-text-right {
+  left: 12px; /* aligned perfectly near the seam */
+}
+
+.medallion-sub-left, .medallion-sub-right {
+  font-size: 0.65rem;
+  color: var(--color-accent);
+  opacity: 0.8;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  position: absolute;
+  bottom: 65px;
+  white-space: nowrap;
+}
+
+.medallion-sub-left {
+  right: 12px; /* aligned perfectly near the seam */
+}
+
+.medallion-sub-right {
+  left: 12px; /* aligned perfectly near the seam */
+}
+
+/* Medallion circular outline details */
+.emblem-half-left, .emblem-half-right {
+  position: absolute;
+  width: 95px;
+  height: 190px;
+  border: 1px dashed var(--color-accent);
+  opacity: 0.35;
+}
+
+.emblem-half-left {
+  border-radius: 190px 0 0 190px;
+  border-right: none;
+  right: 0px; /* meets perfectly at the seam */
+}
+
+.emblem-half-right {
+  border-radius: 0 190px 190px 0;
+  border-left: none;
+  left: 0px; /* meets perfectly at the seam */
+}
+
+/* --- ROYAL PORTRAIT FRAMES WITH DYNAMIC CORNER ORNAMENTS --- */
+.royal-frame {
+  position: relative;
+  padding: 10px;
+  background: var(--color-glass-bg);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--color-card-shadow);
+  transition: border-color 0.5s ease, box-shadow 0.5s ease, background-color 0.3s ease;
+}
+
+.royal-frame:hover {
+  border-color: var(--color-accent);
+  box-shadow: 0 25px 50px rgba(212, 175, 55, 0.08);
+}
+
+.royal-frame::before, .royal-frame::after {
+  content: '';
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-color: var(--color-accent);
+  border-style: solid;
+  pointer-events: none;
+  z-index: 10;
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Top-Left Corner ornament */
+.royal-frame::before {
+  top: 5px;
+  left: 5px;
+  border-width: 1.5px 0 0 1.5px;
+}
+
+/* Bottom-Right Corner ornament */
+.royal-frame::after {
+  bottom: 5px;
+  right: 5px;
+  border-width: 0 1.5px 1.5px 0;
+}
+
+.royal-frame:hover::before {
+  top: 1px;
+  left: 1px;
+  width: 22px;
+  height: 22px;
+}
+
+.royal-frame:hover::after {
+  bottom: 1px;
+  right: 1px;
+  width: 22px;
+  height: 22px;
+}
+
+/* Inner frame lining */
+.royal-frame-inner {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  width: 100%;
+  height: 100%;
+  transition: border-color 0.5s ease;
+}
+
+.royal-frame:hover .royal-frame-inner {
+  border-color: var(--color-accent);
+}
+
+/* Spotlight backdrop for jewelry display case */
+.spotlight-bg {
+  background: var(--color-spotlight);
+  position: relative;
+  transition: background-color 0.3s ease;
+}
+
+.spotlight-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(212, 175, 55, 0.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* --- PREMIUM DIAMOND PAGINATION DOTS --- */
+.diamond-dot {
+  width: 7px;
+  height: 7px;
+  transform: rotate(45deg);
+  border: 1px solid var(--color-accent);
+  background-color: transparent;
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.diamond-dot.active {
+  background-color: var(--color-accent);
+  transform: rotate(45deg) scale(1.4);
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.6);
+}
+
+/* --- DECORATIVE GOLD DIVIDERS --- */
+.gold-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.gold-divider::before, .gold-divider::after {
+  content: '';
+  height: 1px;
+  flex-grow: 1;
+}
+
+.gold-divider::before {
+  background: linear-gradient(to right, transparent, var(--color-accent));
+}
+
+.gold-divider::after {
+  background: linear-gradient(to left, transparent, var(--color-accent));
+}
+
+/* --- PREMIUM LUXURY SCROLLBAR --- */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-dominant);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--color-accent) 0%, #a78328 100%);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent-hover);
+}
+
+/* --- AMBIENT LUXURY GRADIENT GLOW --- */
+.royal-glow-card {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.royal-glow-card::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  background: linear-gradient(135deg, transparent, rgba(212, 175, 55, 0.2), transparent);
+  border-radius: inherit;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.royal-glow-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(212, 175, 55, 0.12);
+}
+
+.royal-glow-card:hover::before {
+  opacity: 1;
+}
+
+.royal-glow-text {
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.25);
+}
+
