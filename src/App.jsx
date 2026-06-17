@@ -32,10 +32,10 @@ function App() {
             <Route path="/signup" element={<UserSignup />} />
             <Route path="/profile" element={<ProtectedRoute><UserProfile /></ProtectedRoute>} />
             <Route path="/cart" element={<ProtectedRoute><Cart /></ProtectedRoute>} />
-            <Route path="/products" element={<ProtectedRoute><Products /></ProtectedRoute>} />
-            <Route path="/silver" element={<ProtectedRoute><SilverCollection /></ProtectedRoute>} />
-            <Route path="/customize" element={<ProtectedRoute><CustomizeCollection /></ProtectedRoute>} />
-            <Route path="/product/:id" element={<ProtectedRoute><ProductDetails /></ProtectedRoute>} />
+            <Route path="/products" element={<Products />} />
+            <Route path="/silver" element={<SilverCollection />} />
+            <Route path="/customize" element={<CustomizeCollection />} />
+            <Route path="/product/:id" element={<ProductDetails />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/admin" element={<AdminLogin />} />
             <Route path="/admin/dashboard" element={<AdminDashboard />} />

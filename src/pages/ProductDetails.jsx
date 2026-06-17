@@ -1,5 +1,6 @@
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { useAuth } from '../context/AuthContext';
 import { MessageCircle, Shield, Truck, RefreshCw, Star, Loader2, ArrowLeft, ShoppingBag } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { useCart } from '../context/CartContext';
@@ -13,6 +14,8 @@ const ProductDetails = () => {
   const { id } = useParams();
   const { t } = useLanguage();
   const navigate = useNavigate();
+  const location = useLocation();
+  const { user } = useAuth();
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   
@@ -21,6 +24,10 @@ const ProductDetails = () => {
 
   const handleAddToCart = () => {
     if (!product) return;
+    if (!user) {
+      navigate('/login', { state: { from: location } });
+      return;
+    }
     addToCart(product, 1);
     setAdded(true);
     setTimeout(() => {
@@ -98,6 +105,10 @@ const ProductDetails = () => {
 
   const handleWhatsAppInquiry = () => {
     if (!product) return;
+    if (!user) {
+      navigate('/login', { state: { from: location } });
+      return;
+    }
     const message = `Hello Devkrupa Jewellers! I am interested in the "${product.name}" (Product ID: ${product.id}). Please provide more details.`;
     const whatsappUrl = `https://wa.me/919638748423?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
