@@ -18,6 +18,7 @@ import Cart from './pages/Cart';
 import ProtectedRoute from './components/ProtectedRoute';
 import ScrollToTop from './components/ScrollToTop';
 import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
         <Footer />
       </div>
       <Analytics />
+      <SpeedInsights />
     </Router>
   );
 }
