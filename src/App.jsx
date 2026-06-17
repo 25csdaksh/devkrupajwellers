@@ -17,6 +17,7 @@ import UserProfile from './pages/UserProfile';
 import Cart from './pages/Cart';
 import ProtectedRoute from './components/ProtectedRoute';
 import ScrollToTop from './components/ScrollToTop';
+import { Analytics } from '@vercel/analytics/react';
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
         </main>
         <Footer />
       </div>
+      <Analytics />
     </Router>
   );
 }
