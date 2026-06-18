@@ -22,6 +22,12 @@ const ProductDetails = () => {
   const { addToCart } = useCart();
   const [added, setAdded] = useState(false);
 
+  const isGoldProduct = product && 
+    !String(product.id).startsWith('silver') && 
+    !(product.category && product.category.toLowerCase().includes('silver')) &&
+    !(product.material && product.material.toLowerCase().includes('silver')) &&
+    !(product.purity && product.purity.toLowerCase().includes('silver'));
+
   const handleAddToCart = () => {
     if (!product) return;
     if (!user) {
@@ -184,7 +190,10 @@ const ProductDetails = () => {
               </div>
               <div className="flex justify-between py-3 border-b border-white/10">
                 <span className="text-muted">{t('weight')}</span>
-                <span className="font-medium">{product.weight || "10.5 Grams"}</span>
+                <span className="font-medium">
+                  {product.weight || "10.5 Grams"}
+                  {isGoldProduct && <span className="text-[11px] text-accent/90 ml-1">{t('customizeWeightAvailable')}</span>}
+                </span>
               </div>
               <div className="flex justify-between py-3 border-b border-white/10">
                 <span className="text-muted">{t('diamondCut')}</span>
@@ -192,7 +201,10 @@ const ProductDetails = () => {
               </div>
               <div className="flex justify-between py-3 border-b border-white/10">
                 <span className="text-muted">{t('purity')}</span>
-                <span className="font-medium">{product.purity || "22K Gold (916)"}</span>
+                <span className="font-medium">
+                  {product.purity || "22K Gold (916)"}
+                  {isGoldProduct && <span className="text-[11px] text-accent/90 ml-1">{t('availableInPurities')}</span>}
+                </span>
               </div>
             </div>
 
