@@ -358,7 +358,7 @@ const Home = () => {
           </div>
 
           <div className="royal-frame">
-            <div className="royal-frame-inner relative h-[450px] md:h-[550px] lg:h-[650px] w-full bg-dominant shadow-2xl group">
+            <div className="royal-frame-inner relative h-[500px] md:h-[550px] lg:h-[650px] w-full bg-dominant shadow-2xl group">
               {showcaseSlides.map((slide, index) => (
                 <div
                   key={index}
@@ -374,20 +374,20 @@ const Home = () => {
                   />
                   
                   {/* Centered Main Image inside a subtle glassmorphic backdrop */}
-                  <div className="absolute inset-0 flex items-center justify-center p-6 pb-40 md:p-12 md:pb-12 bg-radial-spotlight">
+                  <div className="absolute inset-0 flex items-center justify-center p-4 pb-44 md:p-12 md:pb-12 bg-radial-spotlight">
                     <img
                       src={slide.image}
                       alt={slide.title}
-                      className="max-w-full max-h-[80%] md:max-h-[85%] object-contain rounded-sm shadow-2xl border border-white/5"
+                      className="max-w-full max-h-[75%] md:max-h-[85%] object-contain rounded-sm shadow-2xl border border-white/5"
                     />
                   </div>
                   
                   {/* Content Overlay - Glassmorphic Card with thin gold highlight */}
-                  <div className="absolute bottom-12 left-6 right-6 md:left-12 md:bottom-12 md:max-w-md z-20 p-6 rounded-sm bg-dominant/85 border border-accent/20 backdrop-blur-md shadow-xl">
+                  <div className="absolute bottom-4 left-4 right-4 md:left-12 md:bottom-12 md:max-w-md z-20 p-4 md:p-6 rounded-sm bg-dominant/85 border border-accent/20 backdrop-blur-md shadow-xl">
                     <span className="text-accent font-semibold tracking-widest uppercase text-[10px] mb-1.5 block">
                       {slide.subtitle}
                     </span>
-                    <h3 className="text-lg md:text-xl font-serif font-bold text-primary mb-3 tracking-wide">
+                    <h3 className="text-base md:text-xl font-serif font-bold text-primary mb-2 md:mb-3 tracking-wide">
                       {slide.title}
                     </h3>
                     <Link
@@ -404,19 +404,19 @@ const Home = () => {
               {/* Left/Right Navigation Arrows */}
               <button
                 onClick={prevSlide}
-                className="absolute left-6 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-full bg-dominant/70 hover:bg-accent hover:text-dominant border border-white/10 hover:border-accent text-primary flex items-center justify-center transition-all opacity-0 group-hover:opacity-100 shadow-lg"
+                className="absolute left-2 md:left-6 top-1/2 -translate-y-1/2 z-30 w-9 h-9 md:w-11 md:h-11 rounded-full bg-dominant/70 hover:bg-accent hover:text-dominant border border-white/10 hover:border-accent text-primary flex items-center justify-center transition-all opacity-100 md:opacity-0 md:group-hover:opacity-100 shadow-lg"
               >
                 <span className="text-sm">❮</span>
               </button>
               <button
                 onClick={nextSlide}
-                className="absolute right-6 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-full bg-dominant/70 hover:bg-accent hover:text-dominant border border-white/10 hover:border-accent text-primary flex items-center justify-center transition-all opacity-0 group-hover:opacity-100 shadow-lg"
+                className="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 z-30 w-9 h-9 md:w-11 md:h-11 rounded-full bg-dominant/70 hover:bg-accent hover:text-dominant border border-white/10 hover:border-accent text-primary flex items-center justify-center transition-all opacity-100 md:opacity-0 md:group-hover:opacity-100 shadow-lg"
               >
                 <span className="text-sm">❯</span>
               </button>
 
               {/* Pagination Dots using custom Diamond styling */}
-              <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 flex gap-3">
+              <div className="absolute bottom-[180px] md:bottom-6 left-1/2 -translate-x-1/2 z-30 flex gap-3">
                 {showcaseSlides.map((_, index) => (
                   <button
                     key={index}
