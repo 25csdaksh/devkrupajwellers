@@ -363,22 +363,22 @@ const Home = () => {
                 <div
                   key={index}
                   className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-                    index === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0'
+                    index === currentSlide ? 'opacity-100 z-10 pointer-events-auto' : 'opacity-0 z-0 pointer-events-none'
                   }`}
                 >
-                  {/* Blurred Backdrop */}
+                  {/* Blurred Backdrop - optimized blur filter on mobile */}
                   <img
                     src={slide.image}
                     alt=""
-                    className="absolute inset-0 w-full h-full object-cover blur-2xl opacity-15 scale-105 pointer-events-none"
+                    className="absolute inset-0 w-full h-full object-cover blur-md md:blur-2xl opacity-15 scale-105 pointer-events-none"
                   />
                   
                   {/* Centered Main Image inside a subtle glassmorphic backdrop */}
-                  <div className="absolute inset-0 flex items-center justify-center p-4 pb-44 md:p-12 md:pb-12 bg-radial-spotlight">
+                  <div className="absolute inset-0 flex items-center justify-center p-4 pb-44 md:p-12 md:pb-12 spotlight-bg">
                     <img
                       src={slide.image}
                       alt={slide.title}
-                      className="max-w-full max-h-[75%] md:max-h-[85%] object-contain rounded-sm shadow-2xl border border-white/5"
+                      className="h-[48%] md:h-[75%] w-auto object-contain rounded-sm shadow-2xl border border-white/5"
                     />
                   </div>
                   
