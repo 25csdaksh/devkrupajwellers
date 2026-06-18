@@ -358,7 +358,7 @@ const Home = () => {
           </div>
 
           <div className="royal-frame">
-            <div className="royal-frame-inner relative h-[500px] md:h-[550px] lg:h-[650px] w-full bg-dominant shadow-2xl group">
+            <div className="royal-frame-inner relative showcase-container-height w-full bg-dominant shadow-2xl group">
               {showcaseSlides.map((slide, index) => (
                 <div
                   key={index}
@@ -378,7 +378,7 @@ const Home = () => {
                     <img
                       src={slide.image}
                       alt={slide.title}
-                      className="h-[48%] md:h-[75%] w-auto object-contain rounded-sm shadow-2xl border border-white/5"
+                      className="h-1/2 md:h-3/4 w-auto object-contain rounded-sm shadow-2xl border border-white/5"
                     />
                   </div>
                   

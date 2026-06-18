@@ -419,3 +419,20 @@
   text-shadow: 0 0 10px rgba(212, 175, 55, 0.25);
 }
 
+/* Custom Showcase height and styling to prevent collapse on mobile */
+.showcase-container-height {
+  height: 480px !important;
+}
+
+@media (min-width: 768px) {
+  .showcase-container-height {
+    height: 550px !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .showcase-container-height {
+    height: 650px !important;
+  }
+}
+
