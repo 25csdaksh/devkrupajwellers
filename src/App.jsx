@@ -6,8 +6,6 @@ import Products from './pages/Products';
 import SilverCollection from './pages/SilverCollection';
 import ProductDetails from './pages/ProductDetails';
 import Contact from './pages/Contact';
-import AdminLogin from './pages/AdminLogin';
-import AdminDashboard from './pages/AdminDashboard';
 import WelcomeDoors from './components/WelcomeDoors';
 import CustomizeCollection from './pages/CustomizeCollection';
 
@@ -39,8 +37,6 @@ function App() {
             <Route path="/customize" element={<CustomizeCollection />} />
             <Route path="/product/:id" element={<ProductDetails />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/admin" element={<AdminLogin />} />
-            <Route path="/admin/dashboard" element={<AdminDashboard />} />
           </Routes>
         </main>
         <Footer />

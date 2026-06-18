@@ -26,7 +26,6 @@ const Footer = () => {
               <li><Link to="/" className="text-muted hover:text-accent transition-colors">{t('home')}</Link></li>
               <li><Link to="/products" className="text-muted hover:text-accent transition-colors">{t('ourCollection')}</Link></li>
               <li><Link to="/contact" className="text-muted hover:text-accent transition-colors">{t('contactUs')}</Link></li>
-              <li><Link to="/admin" className="text-muted hover:text-accent transition-colors opacity-60 hover:opacity-100">Admin Portal</Link></li>
             </ul>
           </div>
 
