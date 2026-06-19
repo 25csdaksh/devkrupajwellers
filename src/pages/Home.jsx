@@ -17,6 +17,7 @@ import slide4 from '../assets/slide_4.jpg';
 import slide5 from '../assets/slide_5.jpg';
 import specialityImage from '../assets/our_speciality.jpg';
 import customizeNecklace from '../assets/customize_necklace.png';
+import customizeVideo from '../assets/customize_video.mp4';
 
 const Home = () => {
   const { t } = useLanguage();
@@ -445,9 +446,13 @@ const Home = () => {
                     alt={t('customizeCollectionSection')} 
                     className="absolute inset-0 w-full h-full object-cover opacity-15 blur-xl pointer-events-none scale-105"
                   />
-                  <img 
-                    src={customizeNecklace} 
-                    alt={t('customizeCollectionSection')} 
+                  <video 
+                    src={customizeVideo}
+                    poster={customizeNecklace}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
                     className="max-w-full max-h-full object-contain relative z-10 rounded-sm shadow-2xl transition-transform duration-700 hover:scale-105"
                   />
                 </div>
