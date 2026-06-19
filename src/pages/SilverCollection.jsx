@@ -71,13 +71,13 @@ const SilverCollection = () => {
         </div>
 
         {/* Horizontal Category Filters */}
-        <div className="mb-12 flex flex-col items-center">
-          <div className="flex flex-wrap justify-center gap-2.5 max-w-5xl px-4">
+        <div className="mb-12 w-full flex justify-center">
+          <div className="flex overflow-x-auto md:flex-wrap md:justify-center gap-2.5 max-w-full px-4 no-scrollbar scroll-smooth whitespace-nowrap py-2">
             {categories.map((cat) => (
               <button 
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 border backdrop-blur-md ${
+                className={`inline-block px-4 py-1.5 md:px-6 md:py-2.5 rounded-full text-xs md:text-sm font-medium transition-all duration-300 border backdrop-blur-md shrink-0 ${
                   activeCategory === cat 
                   ? 'bg-accent border-accent text-dominant shadow-lg shadow-accent/20 scale-105' 
                   : 'bg-white/5 border-white/10 text-primary hover:text-accent hover:bg-white/10'

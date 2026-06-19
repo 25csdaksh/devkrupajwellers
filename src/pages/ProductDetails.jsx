@@ -221,29 +221,31 @@ const ProductDetails = () => {
               <span>{added ? t('addedToCart') : t('addToCart')}</span>
             </button>
 
-            {/* Actions */}
-            <div className="mb-10">
+            {/* Actions & Inline trust badges */}
+            <div className="mb-6">
               <button 
                 onClick={handleWhatsAppInquiry}
-                className="w-full bg-[#25D366] hover:bg-[#128C7E] text-white py-4 px-6 rounded font-semibold flex items-center justify-center gap-2 transition-colors"
+                className="w-full bg-[#25D366] hover:bg-[#128C7E] text-white py-4 px-6 rounded font-semibold flex items-center justify-center gap-2 transition-colors shadow-md"
               >
                 <MessageCircle size={20} /> {t('inquireWhatsApp')}
               </button>
-            </div>
 
-            {/* Features */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-auto">
-              <div className="flex flex-col items-center text-center p-4 glass-effect rounded border border-white/5">
-                <Shield className="text-accent mb-2" size={24} />
-                <span className="text-sm text-secondary">{t('lifetimeWarranty')}</span>
-              </div>
-              <div className="flex flex-col items-center text-center p-4 glass-effect rounded border border-white/5">
-                <Truck className="text-accent mb-2" size={24} />
-                <span className="text-sm text-secondary">{t('insuredShipping')}</span>
-              </div>
-              <div className="flex flex-col items-center text-center p-4 glass-effect rounded border border-white/5">
-                <RefreshCw className="text-accent mb-2" size={24} />
-                <span className="text-sm text-secondary">{t('easyReturns')}</span>
+              {/* Inline trust badges */}
+              <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mt-4 text-[11px] text-muted font-medium">
+                <div className="flex items-center gap-1.5">
+                  <Shield className="text-accent" size={13} />
+                  <span>{t('lifetimeWarranty')}</span>
+                </div>
+                <div className="h-3 w-[1px] bg-white/10 hidden sm:block"></div>
+                <div className="flex items-center gap-1.5">
+                  <Truck className="text-accent" size={13} />
+                  <span>{t('insuredShipping')}</span>
+                </div>
+                <div className="h-3 w-[1px] bg-white/10 hidden sm:block"></div>
+                <div className="flex items-center gap-1.5">
+                  <RefreshCw className="text-accent" size={13} />
+                  <span>{t('easyReturns')}</span>
+                </div>
               </div>
             </div>
 

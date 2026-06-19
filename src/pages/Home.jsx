@@ -54,11 +54,37 @@ const Home = () => {
   const [trendingProducts, setTrendingProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [activeFeature, setActiveFeature] = useState(0);
+
+  const features = [
+    {
+      icon: Gem,
+      title: t('premiumQuality') || 'Premium Quality',
+      desc: t('qualityDesc') || 'Certified diamonds and highest purity gold crafted to perfection.'
+    },
+    {
+      icon: Shield,
+      title: t('secureShopping') || 'Secure Shopping',
+      desc: t('secureDesc') || '100% secure transactions with insured worldwide shipping.'
+    },
+    {
+      icon: Star,
+      title: t('expertCraftsmanship') || 'Expert Craftsmanship',
+      desc: t('expertDesc') || 'Decades of experience in creating timeless jewelry masterpieces.'
+    }
+  ];
 
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % showcaseSlides.length);
     }, 4500);
+    return () => clearInterval(timer);
+  }, []);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveFeature((prev) => (prev + 1) % features.length);
+    }, 4000);
     return () => clearInterval(timer);
   }, []);
 
@@ -162,36 +188,66 @@ const Home = () => {
       </section>
 
       {/* Features Section */}
-      <section className="py-24 spotlight-bg border-y border-white/5">
+      <section className="py-24 spotlight-bg border-y border-white/5 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-            <div className="flex flex-col items-center text-center p-8 bg-gradient-to-b from-secondary/25 to-dominant/50 border border-accent/15 hover:border-accent/35 rounded-sm hover:-translate-y-2 transition-all duration-500 hover:shadow-[0_15px_30px_-15px_rgba(212,175,55,0.15)] group relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-tr from-accent/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
-              <div className="relative mb-6 p-4 rounded-full bg-secondary/50 border border-accent/10 group-hover:border-accent/30 transition-colors duration-500">
-                <Gem className="text-accent w-7 h-7 transition-transform duration-500 group-hover:scale-110" />
-              </div>
-              <h3 className="text-lg font-serif font-bold text-primary tracking-wide mb-3 group-hover:text-accent transition-colors duration-300">{t('premiumQuality')}</h3>
-              <p className="text-sm text-[var(--color-text-secondary)] opacity-90 leading-relaxed max-w-xs">{t('qualityDesc')}</p>
+          
+          {/* Desktop Grid Layout */}
+          <div className="hidden md:grid grid-cols-3 gap-10">
+            {features.map((feature, index) => {
+              const IconComponent = feature.icon;
+              return (
+                <div key={index} className="flex flex-col items-center text-center p-8 bg-gradient-to-b from-secondary/25 to-dominant/50 border border-accent/15 hover:border-accent/35 rounded-sm hover:-translate-y-2 transition-all duration-500 hover:shadow-[0_15px_30px_-15px_rgba(212,175,55,0.15)] group relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-tr from-accent/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
+                  <div className="relative mb-6 p-4 rounded-full bg-secondary/50 border border-accent/10 group-hover:border-accent/30 transition-colors duration-500">
+                    <IconComponent className="text-accent w-7 h-7 transition-transform duration-500 group-hover:scale-110" />
+                  </div>
+                  <h3 className="text-lg font-serif font-bold text-primary tracking-wide mb-3 group-hover:text-accent transition-colors duration-300">{feature.title}</h3>
+                  <p className="text-sm text-[var(--color-text-secondary)] opacity-90 leading-relaxed max-w-xs">{feature.desc}</p>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Mobile Carousel Layout */}
+          <div className="md:hidden flex flex-col items-center">
+            <div className="relative w-full overflow-hidden min-h-[260px] flex items-center justify-center">
+              {features.map((feature, index) => {
+                const IconComponent = feature.icon;
+                const isActive = index === activeFeature;
+                return (
+                  <div 
+                    key={index} 
+                    className={`absolute inset-x-0 w-full transition-all duration-500 ease-in-out flex flex-col items-center text-center p-8 bg-gradient-to-b from-secondary/25 to-dominant/50 border border-accent/15 rounded-sm ${
+                      isActive 
+                        ? 'opacity-100 translate-x-0 scale-100 z-10' 
+                        : index < activeFeature 
+                          ? 'opacity-0 -translate-x-full scale-95 z-0' 
+                          : 'opacity-0 translate-x-full scale-95 z-0'
+                    }`}
+                  >
+                    <div className="relative mb-6 p-4 rounded-full bg-secondary/50 border border-accent/10">
+                      <IconComponent className="text-accent w-7 h-7" />
+                    </div>
+                    <h3 className="text-lg font-serif font-bold text-primary tracking-wide mb-3">{feature.title}</h3>
+                    <p className="text-sm text-[var(--color-text-secondary)] opacity-90 leading-relaxed max-w-xs mx-auto">{feature.desc}</p>
+                  </div>
+                );
+              })}
             </div>
-            
-            <div className="flex flex-col items-center text-center p-8 bg-gradient-to-b from-secondary/25 to-dominant/50 border border-accent/15 hover:border-accent/35 rounded-sm hover:-translate-y-2 transition-all duration-500 hover:shadow-[0_15px_30px_-15px_rgba(212,175,55,0.15)] group relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-tr from-accent/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
-              <div className="relative mb-6 p-4 rounded-full bg-secondary/50 border border-accent/10 group-hover:border-accent/30 transition-colors duration-500">
-                <Shield className="text-accent w-7 h-7 transition-transform duration-500 group-hover:scale-110" />
-              </div>
-              <h3 className="text-lg font-serif font-bold text-primary tracking-wide mb-3 group-hover:text-accent transition-colors duration-300">{t('secureShopping')}</h3>
-              <p className="text-sm text-[var(--color-text-secondary)] opacity-90 leading-relaxed max-w-xs">{t('secureDesc')}</p>
-            </div>
-            
-            <div className="flex flex-col items-center text-center p-8 bg-gradient-to-b from-secondary/25 to-dominant/50 border border-accent/15 hover:border-accent/35 rounded-sm hover:-translate-y-2 transition-all duration-500 hover:shadow-[0_15px_30px_-15px_rgba(212,175,55,0.15)] group relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-tr from-accent/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
-              <div className="relative mb-6 p-4 rounded-full bg-secondary/50 border border-accent/10 group-hover:border-accent/30 transition-colors duration-500">
-                <Star className="text-accent w-7 h-7 transition-transform duration-500 group-hover:scale-110" />
-              </div>
-              <h3 className="text-lg font-serif font-bold text-primary tracking-wide mb-3 group-hover:text-accent transition-colors duration-300">{t('expertCraftsmanship')}</h3>
-              <p className="text-sm text-[var(--color-text-secondary)] opacity-90 leading-relaxed max-w-xs">{t('expertDesc')}</p>
+
+            {/* Carousel Navigation Dots */}
+            <div className="flex gap-3 mt-6">
+              {features.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setActiveFeature(index)}
+                  className={`diamond-dot ${index === activeFeature ? 'active' : ''}`}
+                  aria-label={`Go to feature ${index + 1}`}
+                ></button>
+              ))}
             </div>
           </div>
+
         </div>
       </section>
 
