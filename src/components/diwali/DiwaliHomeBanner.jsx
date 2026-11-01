@@ -6,7 +6,7 @@ import bridalBanner from '../../assets/bridal_collection_banner.jpg';
 
 const DiwaliHomeBanner = () => {
   const { title, subtitle, startDate, endDate, isActive, store } = DIWALI_CAMPAIGN_CONFIG;
-  const { status, timeLeft } = useCampaignCountdown(startDate, endDate, isActive);
+  const { status } = useCampaignCountdown(startDate, endDate, isActive);
 
   // If campaign is expired or deactivated, we can conditionally hide or show celebratory concluded note
   if (status === 'expired') {
@@ -77,33 +77,6 @@ const DiwaliHomeBanner = () => {
             <p className="text-sm sm:text-base text-[#FBF8F1]/90 mb-6 font-light leading-relaxed max-w-2xl">
               Celebrate the festival of prosperity with 100% BIS 916 hallmarked gold, sparkling certified diamonds, and 925 sterling silver pooja masterpieces. Enjoy exclusive festive concessions on making charges and complimentary silver tokens this Dhanteras.
             </p>
-
-            {/* Live Campaign Countdown Timer */}
-            {!timeLeft.isPast && (
-              <div className="mb-6 bg-black/30 border border-[#D4AF37]/30 p-3 sm:p-4 rounded-sm">
-                <span className="text-[11px] uppercase tracking-wider text-[#D4AF37] block font-semibold mb-2">
-                  {status === 'upcoming' ? 'Campaign Commences In:' : 'Festive Privileges Conclude In:'}
-                </span>
-                <div className="grid grid-cols-4 gap-2 text-center max-w-xs">
-                  <div className="bg-[#4A1020]/90 border border-[#D4AF37]/40 p-2 rounded-sm">
-                    <span className="text-lg sm:text-xl font-bold text-[#FBF8F1] block">{timeLeft.days}</span>
-                    <span className="text-[10px] text-[#D4AF37] uppercase">Days</span>
-                  </div>
-                  <div className="bg-[#4A1020]/90 border border-[#D4AF37]/40 p-2 rounded-sm">
-                    <span className="text-lg sm:text-xl font-bold text-[#FBF8F1] block">{timeLeft.hours}</span>
-                    <span className="text-[10px] text-[#D4AF37] uppercase">Hours</span>
-                  </div>
-                  <div className="bg-[#4A1020]/90 border border-[#D4AF37]/40 p-2 rounded-sm">
-                    <span className="text-lg sm:text-xl font-bold text-[#FBF8F1] block">{timeLeft.minutes}</span>
-                    <span className="text-[10px] text-[#D4AF37] uppercase">Mins</span>
-                  </div>
-                  <div className="bg-[#4A1020]/90 border border-[#D4AF37]/40 p-2 rounded-sm">
-                    <span className="text-lg sm:text-xl font-bold text-[#FBF8F1] block">{timeLeft.seconds}</span>
-                    <span className="text-[10px] text-[#D4AF37] uppercase">Secs</span>
-                  </div>
-                </div>
-              </div>
-            )}
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">

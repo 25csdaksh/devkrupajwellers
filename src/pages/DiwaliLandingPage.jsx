@@ -36,7 +36,7 @@ import antiqueLeafRing from '../assets/gold_ring_antique_leaf.jpg';
 
 const DiwaliLandingPage = () => {
   const { title, subtitle, startDate, endDate, isActive, store, offers, faqs, generalDisclaimers } = DIWALI_CAMPAIGN_CONFIG;
-  const { status, timeLeft } = useCampaignCountdown(startDate, endDate, isActive);
+  const { status } = useCampaignCountdown(startDate, endDate, isActive);
 
   const [openFaq, setOpenFaq] = useState(0);
 
@@ -197,9 +197,9 @@ const DiwaliLandingPage = () => {
                 Illumine this auspicious season with Devkrupa Jewellers' mastercrafted 22K BIS Hallmarked gold, certified natural diamonds, and pure 925 sterling silver pooja masterpieces. Experience timeless craftsmanship trusted for four generations in Ahmedabad.
               </p>
 
-              {/* Campaign Validity & Real-Time Countdown */}
-              <div className="bg-black/35 border border-[#D4AF37]/30 p-4 sm:p-5 rounded-sm max-w-xl backdrop-blur-sm">
-                <div className="flex flex-wrap justify-between items-center gap-2 mb-3">
+              {/* Campaign Validity Info */}
+              <div className="bg-black/35 border border-[#D4AF37]/30 p-4 rounded-sm max-w-xl backdrop-blur-sm">
+                <div className="flex flex-wrap justify-between items-center gap-2">
                   <span className="text-xs uppercase tracking-wider text-[#D4AF37] font-semibold flex items-center gap-1.5">
                     <Calendar size={14} />
                     <span>Dhanteras to Diwali Campaign: {formatFestiveDate(startDate)} – {formatFestiveDate(endDate)}</span>
@@ -208,32 +208,6 @@ const DiwaliLandingPage = () => {
                     {status === 'upcoming' ? 'Upcoming' : 'Campaign Active'}
                   </span>
                 </div>
-
-                {!timeLeft.isPast && (
-                  <div>
-                    <span className="text-[11px] text-[#FBF8F1]/75 block mb-2 font-medium">
-                      {status === 'upcoming' ? 'Campaign Starts In:' : 'Festive Privileges Conclude In:'}
-                    </span>
-                    <div className="grid grid-cols-4 gap-2 text-center">
-                      <div className="bg-[#4A1020] border border-[#D4AF37]/40 py-2 rounded-sm">
-                        <span className="text-xl sm:text-2xl font-bold text-[#FBF8F1] block">{timeLeft.days}</span>
-                        <span className="text-[10px] text-[#D4AF37] uppercase font-semibold">Days</span>
-                      </div>
-                      <div className="bg-[#4A1020] border border-[#D4AF37]/40 py-2 rounded-sm">
-                        <span className="text-xl sm:text-2xl font-bold text-[#FBF8F1] block">{timeLeft.hours}</span>
-                        <span className="text-[10px] text-[#D4AF37] uppercase font-semibold">Hours</span>
-                      </div>
-                      <div className="bg-[#4A1020] border border-[#D4AF37]/40 py-2 rounded-sm">
-                        <span className="text-xl sm:text-2xl font-bold text-[#FBF8F1] block">{timeLeft.minutes}</span>
-                        <span className="text-[10px] text-[#D4AF37] uppercase font-semibold">Mins</span>
-                      </div>
-                      <div className="bg-[#4A1020] border border-[#D4AF37]/40 py-2 rounded-sm">
-                        <span className="text-xl sm:text-2xl font-bold text-[#FBF8F1] block">{timeLeft.seconds}</span>
-                        <span className="text-[10px] text-[#D4AF37] uppercase font-semibold">Secs</span>
-                      </div>
-                    </div>
-                  </div>
-                )}
               </div>
 
               {/* Hero Action CTAs */}
