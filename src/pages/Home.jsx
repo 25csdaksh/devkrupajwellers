@@ -18,6 +18,7 @@ import slide5 from '../assets/slide_5.jpg';
 import specialityImage from '../assets/our_speciality.jpg';
 import customizeNecklace from '../assets/customize_necklace.png';
 import customizeVideo from '../assets/customize_video.mp4';
+import DiwaliHomeBanner from '../components/diwali/DiwaliHomeBanner';
 
 const Home = () => {
   const { t } = useLanguage();
@@ -186,6 +187,9 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      {/* Diwali 2026 Festive Campaign Banner */}
+      <DiwaliHomeBanner />
 
       {/* Features Section */}
       <section className="py-24 spotlight-bg border-y border-white/5 overflow-hidden">

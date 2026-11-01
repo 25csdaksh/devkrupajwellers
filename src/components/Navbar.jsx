@@ -23,8 +23,15 @@ const Navbar = () => {
             </Link>
           </div>
           
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-7">
             <Link to="/" className="text-primary hover:text-accent transition-colors font-medium text-sm">{t('home')}</Link>
+            <Link 
+              to="/diwali-2026" 
+              className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#4A1020] border border-[#D4AF37]/50 text-[#D4AF37] hover:border-[#D4AF37] font-semibold text-xs tracking-wider transition-all shadow-sm group"
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37] animate-pulse"></span>
+              <span className="group-hover:text-white transition-colors">{t('diwali2026')}</span>
+            </Link>
             <Link to="/products" className="text-primary hover:text-accent transition-colors font-medium text-sm">{t('collection')}</Link>
             <Link to="/silver" className="text-primary hover:text-accent transition-colors font-medium text-sm">{t('silverCollection')}</Link>
             <Link to="/customize" className="text-primary hover:text-accent transition-colors font-medium text-sm">{t('customize')}</Link>
@@ -108,11 +115,19 @@ const Navbar = () => {
       {isOpen && (
         <div className="md:hidden bg-secondary border-b border-white/10">
           <div className="px-2 pt-2 pb-4 space-y-1 sm:px-3">
-            <Link to="/" className="block px-3 py-2 text-base font-medium text-primary hover:text-accent">{t('home')}</Link>
-            <Link to="/products" className="block px-3 py-2 text-base font-medium text-primary hover:text-accent">{t('collection')}</Link>
-            <Link to="/silver" className="block px-3 py-2 text-base font-medium text-primary hover:text-accent">{t('silverCollection')}</Link>
-            <Link to="/customize" className="block px-3 py-2 text-base font-medium text-primary hover:text-accent">{t('customize')}</Link>
-            <Link to="/contact" className="block px-3 py-2 text-base font-medium text-primary hover:text-accent">{t('contact')}</Link>
+            <Link to="/" onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-primary hover:text-accent">{t('home')}</Link>
+            <Link 
+              to="/diwali-2026" 
+              onClick={() => setIsOpen(false)} 
+              className="flex items-center gap-2 px-3 py-2 text-base font-semibold text-[#D4AF37] bg-[#4A1020]/40 border border-[#D4AF37]/30 rounded my-1"
+            >
+              <span className="w-2 h-2 rounded-full bg-[#D4AF37] animate-pulse"></span>
+              <span>{t('diwali2026')} Special Offers</span>
+            </Link>
+            <Link to="/products" onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-primary hover:text-accent">{t('collection')}</Link>
+            <Link to="/silver" onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-primary hover:text-accent">{t('silverCollection')}</Link>
+            <Link to="/customize" onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-primary hover:text-accent">{t('customize')}</Link>
+            <Link to="/contact" onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-primary hover:text-accent">{t('contact')}</Link>
             
             {user ? (
               <Link to="/profile" onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-accent hover:text-primary">{t('profile')} ({user.displayName?.split(' ')[0] || 'User'})</Link>

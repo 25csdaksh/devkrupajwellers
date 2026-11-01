@@ -4,6 +4,7 @@ const translations = {
   en: {
     // Navbar
     home: "Home",
+    diwali2026: "Diwali 2026",
     collection: "Collection",
     silverCollection: "Silver Collection",
     customize: "Customize",
@@ -124,6 +125,7 @@ const translations = {
   },
   hi: {
     home: "होम",
+    diwali2026: "दीपावली 2026",
     collection: "संग्रह",
     silverCollection: "चांदी संग्रह",
     customize: "कस्टमाइज़",
@@ -234,6 +236,7 @@ const translations = {
   },
   gu: {
     home: "હોમ",
+    diwali2026: "દિવાળી 2026",
     collection: "કલેક્શન",
     silverCollection: "સિલ્વર કલેક્શન",
     customize: "કસ્ટમાઇઝ",

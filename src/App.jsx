@@ -6,6 +6,7 @@ import Products from './pages/Products';
 import SilverCollection from './pages/SilverCollection';
 import ProductDetails from './pages/ProductDetails';
 import Contact from './pages/Contact';
+import DiwaliLandingPage from './pages/DiwaliLandingPage';
 import WelcomeDoors from './components/WelcomeDoors';
 import CustomizeCollection from './pages/CustomizeCollection';
 
@@ -36,6 +37,7 @@ function App() {
             <Route path="/silver" element={<SilverCollection />} />
             <Route path="/customize" element={<CustomizeCollection />} />
             <Route path="/product/:id" element={<ProductDetails />} />
+            <Route path="/diwali-2026" element={<DiwaliLandingPage />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </main>
