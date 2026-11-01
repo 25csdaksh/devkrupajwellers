@@ -58,7 +58,7 @@ const DiwaliOfferCard = ({ offer, campaignEndDate, whatsappNumber }) => {
         {offer.discountValue && (
           <div className="bg-[#4A1020]/5 border-l-4 border-[#D4AF37] p-3 mb-4 rounded-r-sm">
             <span className="text-xs uppercase font-bold text-[#4A1020] tracking-wider block">
-              Festive Privilege:
+              Festive Special:
             </span>
             <span className="text-sm font-semibold text-[#4A1020]">
               {offer.discountValue}

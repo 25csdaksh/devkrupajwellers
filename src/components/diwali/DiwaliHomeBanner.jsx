@@ -75,7 +75,7 @@ const DiwaliHomeBanner = () => {
 
             {/* Promotional Description */}
             <p className="text-sm sm:text-base text-[#FBF8F1]/90 mb-6 font-light leading-relaxed max-w-2xl">
-              Celebrate the festival of prosperity with 100% BIS 916 hallmarked gold, sparkling certified diamonds, and 925 sterling silver pooja masterpieces. Enjoy exclusive festive concessions on making charges and complimentary silver tokens this Dhanteras.
+              Celebrate the festival of prosperity with 100% BIS 916 hallmarked gold, sparkling certified diamonds, and 925 sterling silver pooja masterpieces. Explore our Diwali Exclusive Offers across all traditional and bridal collections.
             </p>
 
             {/* CTA Buttons */}

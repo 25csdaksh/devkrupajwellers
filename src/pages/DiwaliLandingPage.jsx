@@ -118,7 +118,7 @@ const DiwaliLandingPage = () => {
               "addressCountry": "IN"
             }
           },
-          "description": "Premium Diwali 2026 festive gold, silver, and diamond jewellery privileges with up to 25% off making charges and complimentary silver tokens in Ahmedabad."
+          "description": "Premium Diwali 2026 festive gold, silver, and diamond jewellery with Diwali Exclusive Offers and verified BIS hallmarked purity in Ahmedabad."
         }
       ]
     };
@@ -314,9 +314,9 @@ const DiwaliLandingPage = () => {
             <div className="w-12 h-12 bg-[#4A1020] text-[#D4AF37] rounded-sm flex items-center justify-center mx-auto mb-4">
               <Percent size={22} />
             </div>
-            <h3 className="font-serif font-bold text-lg text-[#4A1020] mb-2">Festive Making Privileges</h3>
+            <h3 className="font-serif font-bold text-lg text-[#4A1020] mb-2">Diwali Exclusive Offers</h3>
             <p className="text-xs text-[#242124]/75 leading-relaxed">
-              Direct festive concessions up to 25% on craftsmanship making charges on eligible collections.
+              Special festive privileges and celebratory benefits across all mastercrafted collections.
             </p>
           </div>
 
@@ -392,7 +392,7 @@ const DiwaliLandingPage = () => {
               Gold Jewellery Festive Privileges
             </h2>
             <p className="text-[#242124]/80 text-sm leading-relaxed mb-4">
-              From our acclaimed antique temple bangles to multi-tier bridal necklace sets, our 22K (916) hallmarked gold ornaments embody traditional royalty. During this festive season, enjoy up to 25% concession on mastercraft making charges.
+              From our acclaimed antique temple bangles to multi-tier bridal necklace sets, our 22K (916) hallmarked gold ornaments embody traditional royalty. During this festive season, enjoy our Diwali Exclusive Offers across select designs.
             </p>
             <div className="space-y-2 mb-6">
               <div className="flex items-center gap-2 text-xs font-semibold text-[#4A1020]">
@@ -452,7 +452,7 @@ const DiwaliLandingPage = () => {
               <div className="space-y-2 mb-6">
                 <div className="flex items-center gap-2 text-xs font-semibold text-[#4A1020]">
                   <CheckCircle2 size={15} className="text-[#D4AF37]" />
-                  <span>Flat 15% off on making charges for all silver articles</span>
+                  <span>Diwali Exclusive Offers on all silver articles</span>
                 </div>
                 <div className="flex items-center gap-2 text-xs font-semibold text-[#4A1020]">
                   <CheckCircle2 size={15} className="text-[#D4AF37]" />
@@ -554,37 +554,37 @@ const DiwaliLandingPage = () => {
 
 
       {/* =========================================================================
-          SECTION 8: MAKING CHARGES DISCOUNT TIERS
+          SECTION 8: DIWALI EXCLUSIVE OFFERS
           ========================================================================= */}
       <section id="section-making-charges" className="py-16 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-12">
           <span className="text-[#4A1020] text-xs font-bold uppercase tracking-widest block mb-2">
-            Transparent Pricing Policy
+            Festive Celebrations
           </span>
           <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#4A1020]">
-            Festive Making Charges Discount Tiers
+            Diwali Exclusive Offers
           </h2>
           <p className="text-[#242124]/80 text-sm mt-2">
-            At Devkrupa Jewellers, we calculate prices transparently. The more you shop for your family’s festive requirements, the higher your savings on artisanal labor charges.
+            At Devkrupa Jewellers, experience transparent pricing with Diwali Exclusive Offers across all traditional, contemporary, and bridal jewellery collections.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="bg-white p-6 border-2 border-[#D4AF37]/30 rounded-sm shadow-sm relative">
             <span className="text-xs uppercase font-bold text-[#4A1020] tracking-wider block mb-1">
-              Tier 01 • Festive Starters
+              Festive Starters
             </span>
-            <div className="text-3xl font-serif font-bold text-[#4A1020] mb-2">
-              10% OFF
+            <div className="text-2xl font-serif font-bold text-[#4A1020] mb-2">
+              Diwali Exclusive Offers
             </div>
             <div className="text-xs text-[#242124]/75 mb-4 font-medium">
-              Applicable on purchases up to ₹1,50,000
+              Daily wear, festive rings, lightweight gold chains &amp; silver pooja articles
             </div>
             <p className="text-xs text-[#242124]/80 leading-relaxed mb-4">
-              Perfect for lightweight gold rings, daily wear chains, stud earrings, and festive silver pooja diyas.
+              Handcrafted lightweight 22K gold rings, daily wear chains, stud earrings, and festive silver pooja diyas.
             </p>
             <div className="text-[11px] text-[#4A1020] font-semibold bg-[#FBF8F1] p-2 rounded-sm border border-[#D4AF37]/20">
-              Valid on net making charges
+              Diwali Festive Special
             </div>
           </div>
 
@@ -593,37 +593,37 @@ const DiwaliLandingPage = () => {
               Most Popular
             </div>
             <span className="text-xs uppercase font-bold text-[#D4AF37] tracking-wider block mb-1">
-              Tier 02 • Family Celebrations
+              Family Celebrations
             </span>
-            <div className="text-3xl font-serif font-bold text-[#D4AF37] mb-2">
-              18% OFF
+            <div className="text-2xl font-serif font-bold text-[#D4AF37] mb-2">
+              Diwali Exclusive Offers
             </div>
             <div className="text-xs text-[#FBF8F1]/80 mb-4 font-medium">
-              Purchases between ₹1,50,001 and ₹4,00,000
+              Traditional kadas, bangles, festive necklaces &amp; pooja thali sets
             </div>
             <p className="text-xs text-[#FBF8F1]/85 leading-relaxed mb-4">
               Ideal for pair of antique bangles, royal temple kadas, mangalsutras, and heavy silver dinner sets.
             </p>
             <div className="text-[11px] text-[#D4AF37] font-semibold bg-black/30 p-2 rounded-sm border border-[#D4AF37]/30">
-              Maximum festive family value
+              Maximum Festive Family Value
             </div>
           </div>
 
           <div className="bg-white p-6 border-2 border-[#D4AF37]/30 rounded-sm shadow-sm relative">
             <span className="text-xs uppercase font-bold text-[#4A1020] tracking-wider block mb-1">
-              Tier 03 • Grand Bridal &amp; Festive
+              Grand Bridal &amp; Festive
             </span>
-            <div className="text-3xl font-serif font-bold text-[#4A1020] mb-2">
-              25% OFF
+            <div className="text-2xl font-serif font-bold text-[#4A1020] mb-2">
+              Diwali Exclusive Offers
             </div>
             <div className="text-xs text-[#242124]/75 mb-4 font-medium">
-              Purchases above ₹4,00,000
+              Grand bridal choker sets, Jadau masterpieces &amp; heirloom collections
             </div>
             <p className="text-xs text-[#242124]/80 leading-relaxed mb-4">
               Exclusive privileges on grand heritage bridal sets, Jadau masterpieces, and royal heirloom sets.
             </p>
             <div className="text-[11px] text-[#4A1020] font-semibold bg-[#FBF8F1] p-2 rounded-sm border border-[#D4AF37]/20">
-              VIP consultation included
+              VIP Showroom Consultation
             </div>
           </div>
         </div>
